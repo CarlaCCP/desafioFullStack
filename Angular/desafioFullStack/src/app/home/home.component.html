@@ -1,0 +1,90 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron bg-dark">
+
+                <h1 class="display-4 text-center p-3">
+                    Insira os seus dados
+                </h1>
+                <form>
+                    <div class="row p-3">
+                        <div class="col-md-4">
+                            <input class="form-control-lg bg-white" type="text" placeholder="Primeiro Nome" [(ngModel)]="user.primeiroNome" [ngModelOptions]="{standalone: true}">
+                        </div>
+
+                        <div class="col-md-4">
+                            <input class="form-control-lg bg-white" type="text" placeholder="Último Nome" [(ngModel)]="user.ultimoNome" [ngModelOptions]="{standalone: true}">
+                        </div>
+
+                        <div class="col-md-4">
+                            <input class="form-control-lg bg-white" type="text" placeholder="Participação" [(ngModel)]="user.participacao" [ngModelOptions]="{standalone: true}">
+                        </div>
+
+                    </div>
+                    <hr class="my-5">
+                    <div class="container d-flex justify-content-center">
+                        <button type="submit" 
+                            class="btn btn-light btn-lg justify-content-center" (click)='cadastro()'>Enviar
+                            <a href="#inicio"></a>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="p-3">
+
+</div>
+<div class="container p-5 " id="inicio">
+    <div class="row">
+        <div class="col-md-6 p-3">
+            <h3 class="text-center p-3">
+                Grupo de usuários
+            </h3>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Primeiro nome</th>
+                        <th scope="col">Último nome</th>
+                        <th scope="col">Participação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= 'let item of listaUsuario'>
+                        <th scope="row">{{item.id}}</th>
+                        <td>{{item.primeiroNome}}</td>
+                        <td>{{item.ultimoNome}}</td>
+                        <td>{{item.participacao}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-6 p-3">
+            <h3 class="text-center p-3">
+                Gráfico de usuários
+            </h3>
+            <div class="jumbotron bg-dark">
+                <!--Gráfico -->
+                <div style="display: block;">
+                    <canvas baseChart 
+                      [data]="pieChartData" 
+                      [labels]="pieChartLabels" 
+                      [chartType]="pieChartType"
+                      [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins"
+                      [legend]="pieChartLegend">
+                    </canvas>
+                  </div>
+                  <!--Fim gráfico-->
+            </div>
+        </div>
+    </div>
+</div>
