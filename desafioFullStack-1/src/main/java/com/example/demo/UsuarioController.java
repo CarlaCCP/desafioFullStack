@@ -1,4 +1,4 @@
-package controller;
+package com.example.demo;
 
 import java.util.List;
 
@@ -15,16 +15,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.Usuario;
-import repository.RepositoryUsuario;
+
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/usuario")
-public class ControllerUsuario {
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+public class UsuarioController {
+	
 	@Autowired
-	private RepositoryUsuario repository;
+	private UsuarioRepository repository;
 	
 	
 	@GetMapping
@@ -53,5 +52,5 @@ public class ControllerUsuario {
 		repository.deleteById(id);
 	}
 	
-	
+
 }
